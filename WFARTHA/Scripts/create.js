@@ -3759,15 +3759,16 @@ function validacionPayer() {
     var proveedor = $("#PAYER_ID").val();
     if (proveedor == "" | proveedor == null) {
         M.toast({ html: "No se ha seleccionado proveedor" });
-        $("#tab_con").prop("href", "#Encabezado_cont");
-        $("#tab_sop").prop("href", "#Encabezado_cont");
+        //$("#tab_con").prop("href", "#Encabezado_cont");
+        //$("#tab_sop").prop("href", "#Encabezado_cont");
+        return false;
     }
-    else {
-        $("#tab_con").prop("href", "#Contable_cont");
-        var ref = $("#tab_sop").prop("href");
-        if (ref.indexOf('Contable_cont') === -1) {
-            $("#tab_sop").prop("href", "#Informacion_cont");
-        }
+    //else {
+    //    $("#tab_con").prop("href", "#Contable_cont");
+    //    var ref = $("#tab_sop").prop("href");
+    //    if (ref.indexOf('Contable_cont') === -1) {
+    //        $("#tab_sop").prop("href", "#Informacion_cont");
+    //    }
     }
 }
 function validacionConcepto() {
@@ -3776,15 +3777,16 @@ function validacionConcepto() {
     ct1 = parseFloat(ct1);
     if (ct1 < 50) {
         M.toast({ html: "Falta explicación en cabecera" });
-        $("#tab_con").prop("href", "#Encabezado_cont");
-        $("#tab_sop").prop("href", "#Encabezado_cont");
+        //$("#tab_con").prop("href", "#Encabezado_cont");
+        //$("#tab_sop").prop("href", "#Encabezado_cont");
+        return false;
     }
-    else {
-        $("#tab_con").prop("href", "#Contable_cont");
-        var ref = $("#tab_sop").prop("href");
-        if (ref.indexOf('Contable_cont') === -1) {
-            $("#tab_sop").prop("href", "#Informacion_cont");
-        }
+    //else {
+    //    $("#tab_con").prop("href", "#Contable_cont");
+    //    var ref = $("#tab_sop").prop("href");
+    //    if (ref.indexOf('Contable_cont') === -1) {
+    //        $("#tab_sop").prop("href", "#Informacion_cont");
+    //    }
     }
 }
 function validacionAnexo() {
@@ -3793,11 +3795,12 @@ function validacionAnexo() {
     if (borrador != "B") {
         if (lengthT == 0) {
             M.toast({ html: "Es necesario agregar por lo menos 1 Anexo" });
-            $("#tab_sop").prop("href", "#Contable_cont");
+            //$("#tab_sop").prop("href", "#Contable_cont");
+            return false;
         }
-        else {
-            $("#tab_sop").prop("href", "#Informacion_cont");
-        }
+        //else {
+        //    $("#tab_sop").prop("href", "#Informacion_cont");
+        //}
     }
     validacionAnexos();
     validacionPayer();
@@ -4029,6 +4032,7 @@ function validacionAnexos() {
     var rn = $("table#table_info tbody tr[role='row']").length;
     if (rn == 0) {
         M.toast({ html: "No hay renglones" });
+        return false;
     }
     
 }
